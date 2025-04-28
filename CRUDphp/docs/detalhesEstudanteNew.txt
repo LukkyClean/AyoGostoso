@@ -1,0 +1,136 @@
+<?php
+    // Inclui o controlador e instancia a classe Controller
+    require_once 'controllers/Controller.php';
+    $controller = new Controller();
+
+    // Coleta os dados passados via GET e define variáveis
+    $matriculaEstudante = isset($_GET['matricula']) ? $_GET['matricula'] : '';
+    $nomeEstudante = isset($_GET['nome']) ? $_GET['nome'] : '';
+    $cursoEstudante = isset($_GET['curso']) ? $_GET['curso'] : '';
+    $anoIngressoEstudante = isset($_GET['anoIngresso']) ? $_GET['anoIngresso'] : '';
+    $idEstudante = isset($_GET['id']) ? $_GET['id'] : '';
+
+    // Lista os responsáveis pelo estudante
+    $responsaveis = $controller->listarResponsaveis($idEstudante);
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Estudante</title>
+
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="./css/style1.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Header com navbar -->
+    <header class="navbar">
+        <nav class="navbar bg-verde fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/LogoAmelia.png" alt="Logo Amélia" width="113px" height="70px">
+                </a>
+
+                <!-- Botão do menu (offcanvas) -->
+                <button class="navbar-toggler" style="color: white; border: 0;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <img src="./images/MenuIcon.png" alt="Menu" width="40px" height="40px">
+                </button>
+
+                <!-- Menu lateral -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">EEEP Amélia Figueiredo de Lavor</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Listar Estudantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Cadastrar Estudantes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section class="data">
+
+            <!-- Dados do estudante -->
+            <div class="student">
+                <h1>Dados do Aluno</h1>
+                <div class="box">
+                    <!-- Foto do estudante -->
+                    <div class="image">
+                        <img src="./images/andre.jpeg" class="rounded-circle" alt="Foto do estudante" width="250px" height="250px">
+                    </div>
+
+                    <!-- Descrição dos dados do aluno -->
+                    <div class="description">
+                        <div class="content">
+                            <p>Matrícula: <span>15878969</span></p>
+                            <p>Nome: <span>Carlos André Guedes de Almeida</span></p>
+                            <p>Série: <span>3º ano</span></p>
+                            <p>Curso: <span>Informática</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Ações (editar/excluir) -->
+                    <div class="actions">
+                        <button><img src="./images/EditStudent.svg" alt="Ícone de editar" width="50px" height="50px" style="transform: scale(1.16);"></button>
+                        <button><img src="./images/DeleteStudent.svg" alt="Ícone de excluir" width="50px" height="50px"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsáveis cadastrados -->
+            <div class="parent">
+                <h1>Responsáveis Cadastrados</h1>
+                <div class="box">
+                    <div class="image">
+                        <img src="./images/qr_code.png" class="rounded" alt="QR code do contato" width="250px" height="250px">
+                    </div>
+                    <div class="description">
+                        <div class="content">
+                            <p>Contato: <span>(88) 9 9908-3353</span></p>
+                            <p>Nome: <span>Marcos Pedrosa de Almeida Guedes</span></p>
+                            <p>Parentesco: <span>Pai</span></p>
+                            <p>Link do Whatsapp: <span><a href="">Clique aqui</a></span></p>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button><img src="./images/EditStudent.svg" alt="Ícone de editar" width="50px" height="50px" style="transform: scale(1.16);"></button>
+                        <button disabled><img src="./images/DeleteStudent.svg" alt="Ícone de excluir" width="50px" height="50px"></button>
+                    </div>
+                </div>
+
+                <!-- Botão para adicionar novo responsável -->
+                <button class="add-parent">
+                    <img src="./images/addParent.png" alt="Adicionar um responsável" width="50px" height="50px">
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="bg-footer-img"></div>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
