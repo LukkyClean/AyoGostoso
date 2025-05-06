@@ -1,0 +1,54 @@
+<?php
+    require_once 'controllers/Controller.php';
+    $controller = new Controller();
+    $matriculaEstudante = isset($_GET['matricula']) ? $_GET['matricula'] : '';
+    $nomeEstudante = isset($_GET['nome']) ? $_GET['nome'] : '';
+    $cursoEstudante = isset($_GET['curso']) ? $_GET['curso'] : '';
+    $anoIngressoEstudante = isset($_GET['anoIngresso']) ? $_GET['anoIngresso'] : '';
+    $idEstudante = isset($_GET['id']) ? $_GET['id'] : '';
+    $responsaveis = $controller->listarResponsaveis($idEstudante);
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Estudante</title>
+</head>
+<body>
+    <h2>Detalhes Estudante</h2>
+
+    <h4>Estudante</h4>
+    <table border="1">
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Ano de Ingresso</th>
+        </tr>
+        <tr>
+            <td><?= htmlspecialchars($matriculaEstudante) ?></td>
+            <td><?= htmlspecialchars($nomeEstudante) ?></td>
+            <td><?= htmlspecialchars($cursoEstudante) ?></td>
+            <td><?= htmlspecialchars($anoIngressoEstudante) ?></td>
+        </tr>
+    </table>
+
+    <h4>Responsáveis</h4>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Parentesco</th>
+            <th>Contato</th>
+        </tr>
+        <?php foreach ($responsaveis as $responsavel): ?>
+            <tr>
+                <td><?= htmlspecialchars($responsavel->nome) ?></td>
+                <td><?= htmlspecialchars($responsavel->prentesco) ?></td>
+                <td><?= htmlspecialchars($responsavel->contato) ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>

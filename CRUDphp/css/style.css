@@ -1,0 +1,407 @@
+/* ==================== IMPORTAÇÃO DE FONTES ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ==================== RESET E CONFIGURAÇÕES GERAIS ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem; /* 16px */
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/alunoBackground.png");
+    background-repeat: no-repeat;
+    background-position: center 60px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ==================== MENU ==================== */
+.boxHeader {
+    margin-bottom: 130px;
+}
+
+
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
+main {
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+/* ==================== SESSÕES DE DADOS ==================== */
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem; /* 80px */
+}
+
+.student, .parent {
+    margin: 0;
+}
+
+.student h1, .parent h1 {
+    font-size: 2.5rem; /* 40px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.parent .add-parent {
+    border: 0;
+    background-color: transparent;
+    margin: 2.5rem auto; /* 40px */
+    display: flex;
+    justify-content: center;
+}
+
+/* ==================== BOX CONTEÚDO PRINCIPAL ==================== */
+
+/* ==================== BOX VISUALIZAÇÃO ==================== */
+.box {
+    height: 18.75rem; /* 300px */
+    background-color: #086501;
+    display: flex;
+    border-radius: 0.625rem 1.25rem 1.25rem 0.625rem; /* 10px 20px 20px 10px */
+}
+
+.box .image {
+    width: 18.75rem; /* 300px */
+    height: 18.75rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box .description {
+    width: 62.5rem; /* 1000px */
+    height: 18.75rem;
+    padding: 1.875rem; /* 30px */
+    background-color: #3F3D3D;
+}
+
+.box .actions {
+    width: 6.25rem; /* 100px */
+    height: 18.75rem;
+    background-color: #D9D9D9;
+    border-radius: 0 0.625rem 0.625rem 0;
+}
+
+.content {
+    height: 15rem; /* 240px */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content p {
+    font-size: 1.5625rem; /* 25px */
+    color: #ededed;
+}
+
+.content span {
+    font-size: 1.5625rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem; /* 40px */
+}
+
+.actions button {
+    border: 0;
+    background-color: transparent;
+}
+
+button .icon {
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.icon:hover {
+    filter: brightness(0.90);
+}
+
+.parent #responsaveis {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ==================== BOX EDITANDO ==================== */
+
+.image .profile{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic-user {
+    width: 100%;
+    height: 100%;
+}
+
+.pic-edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 500ms;
+}
+
+.pic-edit:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.file-input {
+    display: none;
+}
+
+.content .data-edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-edit label {
+    width: auto;
+    font-size: 1.5625rem; /* 25px */
+    color: #ededed;
+}
+
+.data-edit input, .data-edit select {
+    height: 3.5rem;
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    padding-left: 0.5rem;
+    font-size: 1.5625rem;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.data-edit input:hover, .data-edit select {
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #086501;
+}
+   
+.data-edit input:focus, .data-edit select {
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #086501;
+}
+
+select option {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+}
+
+select option:focus {
+    background-color: #086501;
+}
+
+/* ==================== RESPONSIVIDADE: TABLETS ==================== */
+@media screen and (max-width: 768px) {
+
+    .navbar-brand img {
+        width: 93px;
+        height: 50px;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .boxHeader {
+        margin-bottom: 80px;
+    }
+
+    .data {
+        gap: 3rem;
+    }
+
+    .box {
+        flex-direction: column;
+        height: auto;
+        border-radius: 1rem 1rem 2rem 2rem;
+        width: 90vw;
+    }
+
+    .box .image, 
+    .box .description, 
+    .box .actions {
+        width: 100%;
+        height: auto;
+    }
+
+    .box .image {
+        padding: 1rem 0;
+    }
+
+    .image .profile {
+        width: 250px;
+        height: 250px;
+    }
+
+    .box .description {
+        padding: 1rem;
+    }
+
+    .content {
+        height: auto;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .content p, 
+    .content span {
+        font-size: 1.125rem; /* 18px */
+    }
+
+    .box .actions {
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .actions {
+        flex-direction: row;
+        gap: 5rem;
+        padding: 1rem;
+    }
+
+    .actions button img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .student h1, 
+    .parent h1 {
+        font-size: 1.75rem; /* 28px */
+    }
+
+    .parent .add-parent {
+        margin-top: 3rem;
+    }
+
+    footer {
+        min-height: 12rem;
+    }
+
+    .data-edit label,
+    .data-edit input,
+    .data-edit select {
+        font-size: 1.125rem;
+    }
+
+    .data-edit input,
+    .data-edit select {
+        width: 75%;
+        height: 2rem;
+        margin-bottom: 15px;
+        padding-left: 0.2rem;
+    }
+
+}
+
+/* ==================== RESPONSIVIDADE: CELULARES PEQUENOS ==================== */
+@media screen and (max-width: 480px) {
+
+    .navbar-brand img {
+        width: 70px;
+        height: auto;
+    }
+
+    .student h1, 
+    .parent h1 {
+        font-size: 1.375rem; /* 22px */
+        text-align: center;
+    }
+
+    .data {
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+
+    .box {
+        max-width: 100%;
+        border-radius: 1rem 1rem 2rem 2rem;
+    }
+
+    .image .profile {
+        min-width: 30%;
+        min-height: 30%;
+    }
+
+    .content p, 
+    .content span {
+        font-size: 1rem; /* 16px */
+    }
+
+    .actions {
+        gap: 2rem;
+    }
+
+    .actions button img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .parent .add-parent {
+        margin: 2rem auto 0 auto;
+    }
+
+    footer {
+        min-height: 10rem;
+    }
+
+    .data-edit {
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .data-edit label,
+    .data-edit input,
+    .data-edit select {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .data-edit input,
+    .data-edit select {
+        height: 1.8rem;
+        margin-bottom: 15px;
+        padding-left: 0.2rem;
+    }
+}
